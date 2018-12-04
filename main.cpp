@@ -1,3 +1,5 @@
+#include <random>
+
 // Implementation of binary search trees for the Dictionary ADT
 // Notice we are using the keys in comparisons not values
 
@@ -382,7 +384,7 @@ int main(int argc, char *argv[])
     // Shuffling randomly.
     // Otherwise if we follow sequential order of the array and we gonna get
     // a skewed BST
-    random_shuffle(begin(keys), end(keys));// This is removed in c++17.
+    shuffle(begin(keys), end(keys), std::mt19937(std::random_device()()));// This is removed in c++17.
 // So please use std::shuffle instead
 
     // Inserting randomly shuffled above array taking the index(unique)
@@ -416,7 +418,7 @@ int main(int argc, char *argv[])
     int keys2[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
     srand(time(0));
-    random_shuffle(begin(keys2), end(keys2)); // Shuffling randomly.
+    shuffle(begin(keys2), end(keys2), std::mt19937(std::random_device()())); // Shuffling randomly.
     // Otherwise if we follow sequential order of the array and we gonna get
     // a skewed BST
     cout <<  endl;
